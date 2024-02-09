@@ -1,0 +1,11 @@
+{
+  "name": "nlw-nodejs-votes-websocket",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.11.17",
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.3"
+  }
+}
