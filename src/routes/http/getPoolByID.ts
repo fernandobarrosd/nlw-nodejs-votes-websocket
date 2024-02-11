@@ -24,7 +24,7 @@ export async function getPoolByID(app: FastifyInstance) {
         })
 
         if (!poll) {
-            return reply.status(40).send({
+            return reply.status(400).send({
                 message: "Pool not exists",
                 statusCode: 401
             })
@@ -39,11 +39,14 @@ export async function getPoolByID(app: FastifyInstance) {
             return voteData;
         }, {} as Record<string, number>);
 
-        const { id, title, options } = poll;
+        const { id, title, options, createdAt, updatedAt } 
+        = poll;
         
         return reply.send({
             id,
             title,
+            createdAt,
+            updatedAt,
             options: options.map(option => ({
                 id: option.id,
                 title: option.title,

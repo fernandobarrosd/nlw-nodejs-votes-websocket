@@ -18,6 +18,17 @@ export async function voteOnPoll(app: FastifyInstance) {
 
         let { sessionId } = req.cookies;
 
+        const poll = await prismaClient.poll.findUnique({
+            where: { id: pollID }
+        });
+
+        if (!poll) {
+            return reply.status(400).send({
+                message: "Pool not exists",
+                statusCode: 401
+            })
+        }
+
         if (sessionId) {
             const userPreviousVoteOnPoll = await prismaClient.vote.findUnique({
                 where: {
@@ -84,14 +95,17 @@ export async function voteOnPoll(app: FastifyInstance) {
 
         
         return reply.status(201).send({
+            sessionID: sessionId,
             id: vote.id,
+            createdAt: vote.createdAt,
             poll: {
                 id: vote.pollID,
                 title: vote.poll.title,
-                option: {
-                    id: vote.pollOptionID,
-                    title: vote.pollOption.title
-                }
+            },
+            votedPollOption: {
+                id: vote.pollOptionID,
+                title: vote.pollOption.title,
+                votesCount: parseInt(votes)
             }
         })
     });
