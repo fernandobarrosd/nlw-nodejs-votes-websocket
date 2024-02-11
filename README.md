@@ -107,4 +107,16 @@ This polling API stands out with the integration of a WebSocket route. Every tim
             "statusCode": number
         }
         ```
+    - GET /polls/:pollID/results **WebSocket**
+     - Description: This route is responsible for displaying the data of a poll every time a vote is created for a specific option
+
+    - URL Params: The poll id (**required**)
+
+    - Response (**Sucess**)
+        ```json
+        {
+            "pollOptionID": string,
+            "votesCount": number,
+        }
+        ```
     

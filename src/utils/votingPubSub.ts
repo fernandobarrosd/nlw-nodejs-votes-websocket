@@ -1,4 +1,4 @@
-type Message = {pollOptionID: string, votes: number}
+type Message = { pollOptionID: string, votesCount: number }
 
 type Subscriber = (message: Message) => void
 
