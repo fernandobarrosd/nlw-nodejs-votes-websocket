@@ -1,0 +1,9 @@
+-- CreateTable
+CREATE TABLE "pool" (
+    "id" TEXT NOT NULL,
+    "title" TEXT NOT NULL,
+    "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updated_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
+    CONSTRAINT "pool_pkey" PRIMARY KEY ("id")
+);
