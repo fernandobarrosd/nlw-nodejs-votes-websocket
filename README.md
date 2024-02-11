@@ -28,14 +28,14 @@ This polling API stands out with the integration of a WebSocket route. Every tim
     - Request body (**required**)
          ```json
         {
-            "title": string,
-            "options": string[]
+            "title": "string",
+            "options": "string[]"
         }
         ```
     - Response (**Sucess**)
         ```json
         {
-            "pollID": string
+            "pollID": "string"
         }
         ```
 
@@ -47,15 +47,15 @@ This polling API stands out with the integration of a WebSocket route. Every tim
     - Response (**Sucess**)
         ```json
         {
-            "id": string,
-            "title": string,
-            "createdAt": Date,
-            "updatedAt": Date,
+            "id": "string",
+            "title": "string",
+            "createdAt": "Date",
+            "updatedAt": "Date",
             "options": [
                 {
-                    "id": string,
-                    "title": string,
-                    "votesCount": number
+                    "id": "string",
+                    "title": "string",
+                    "votesCount": "number"
                 }
             ]
         }
@@ -63,8 +63,8 @@ This polling API stands out with the integration of a WebSocket route. Every tim
      - Response (**Error**)
         ```json
         {
-            "message": string,
-            "statusCode": number
+            "message": "string",
+            "statusCode": "number"
         }
         ```
     
@@ -77,25 +77,25 @@ This polling API stands out with the integration of a WebSocket route. Every tim
     - Request body (**required**)
          ```json
         {
-           "pollOptionID": string
+           "pollOptionID": "string"
         }
         ```
     - Response (**Sucess**)
         ```json
         {
-            "id": string,
-            "createdAt": Date,
+            "id": "string",
+            "createdAt": "Date",
             "poll": {
-                "id": string,
-                "title": string,
-                "createdAt": Date,
-                "updatedAt": Date
+                "id": "string",
+                "title": "string",
+                "createdAt": "Date",
+                "updatedAt": "Date"
             },
             "votedPollOption": [
                 {
-                    "id": string,
-                    "title": string,
-                    "votesCount": number
+                    "id": "string",
+                    "title": "string",
+                    "votesCount": "number"
                 }
             ]
         }
@@ -103,20 +103,20 @@ This polling API stands out with the integration of a WebSocket route. Every tim
      - Response (**Error**)
         ```json
         {
-            "message": string,
-            "statusCode": number
+            "message": "string",
+            "statusCode": "number"
         }
         ```
     - GET /polls/:pollID/results **WebSocket**
-     - Description: This route is responsible for displaying the data of a poll every time a vote is created for a specific option
+        - Description: This route is responsible for displaying the data of a poll every time a vote is created for a specific option
 
-    - URL Params: The poll id (**required**)
+        - URL Params: The poll id (**required**)
 
-    - Response (**Sucess**)
-        ```json
-        {
-            "pollOptionID": string,
-            "votesCount": number,
-        }
-        ```
+         - Response (**Sucess**)
+            ```json
+            {
+                "pollOptionID": "string",
+                "votesCount": "number",
+            }
+            ```
     
